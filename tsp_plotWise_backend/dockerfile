@@ -1,0 +1,29 @@
+FROM python:3.7-slim-stretch
+LABEL maintainer="Ranadeep G."
+
+# Never prompts the user for choices on installation/configuration of packages
+ENV DEBIAN_FRONTEND noninteractive
+ENV TERM linux
+
+ENV PYTHON_PACKAGES="\
+    pika \
+	requests \
+    flask \
+    gunicorn \
+    ortools \
+    "
+
+RUN pip install --no-cache-dir $PYTHON_PACKAGES
+
+WORKDIR /home/rg
+COPY ./ ./
+ENV FLASK_APP app
+ENV FLASK_DEBUG 1
+ENV RMQ_HOST rabbitmq
+ENV RMQ_USER admin
+ENV RMQ_PASSWORD nimda
+ENV FLASK_APP app
+RUN chmod 777 -R /home/rg/*
+USER 1000:1000
+EXPOSE 8000
+ENTRYPOINT [ "python", "TSP_PlotWise_backend.py" ]
