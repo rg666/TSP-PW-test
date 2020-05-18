@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "5b45efb6-c743-4244-b813-2c69015835d9",
+		"name": "PW_TSP_POSTMAN_COLL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RANDOM_TSP_ROUTE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/randomtsproute?numofpoints=29",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"randomtsproute"
+					],
+					"query": [
+						{
+							"key": "numofpoints",
+							"value": "29"
+						}
+					]
+				},
+				"description": "Please pass request in the format:-\n\nhttp://localhost:8000/randomtsproute?numofpoints=2"
+			},
+			"response": []
+		},
+		{
+			"name": "CALCULATE_TSP_ROUTE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/generatetsproute?pointslist=(53, 2);(55,29);(20,40);(90,16);(100,65);(67,69);(182,2);(12,78);(87,16);(50,50);(13,89);(100,9)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"generatetsproute"
+					],
+					"query": [
+						{
+							"key": "pointslist",
+							"value": "(53, 2);(55,29);(20,40);(90,16);(100,65);(67,69);(182,2);(12,78);(87,16);(50,50);(13,89);(100,9)"
+						}
+					]
+				},
+				"description": "Please pass the request in the format:-\n\nhttp://localhost:8000/generatetsproute?pointslist=53, 2;55,29;20,40;90,16"
+			},
+			"response": []
+		},
+		{
+			"name": "CALCULATE_TSP_ROUTE_negative",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/generatetsproute?pointslist=(53, 2);(55,29);(20,40);(90,16);(100,65);(67,69);(182,2);(12,78);(87,16);.......!3%23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"generatetsproute"
+					],
+					"query": [
+						{
+							"key": "pointslist",
+							"value": "(53, 2);(55,29);(20,40);(90,16);(100,65);(67,69);(182,2);(12,78);(87,16);.......!3#"
+						}
+					]
+				},
+				"description": "Input passed in wrong manner"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
