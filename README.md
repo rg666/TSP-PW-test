@@ -12,4 +12,4 @@ Scope covered in the solution:
 Technical implementation explanation:
 
 The solution is containorised using docker. The solution is implemented using 3 containers/services: docker-rabbitmq-example-master, tsp_plotWise_backend and flask-app. 
-Back end APIs are hosted using a minimal flask app, which in return calls tsp_plotWise_backend over rabbitmq AMQP protocol using RPC(to keep the session synchronous). The tsp_plotWise_backend service is the heart of the route optimisation of the app, which leverages on Google's Go-Tools.
+Back end APIs are hosted using a minimal flask app, which in return calls tsp_plotWise_backend over rabbitmq AMQP protocol using RPC(to keep the session synchronous). The tsp_plotWise_backend service is the heart of the route optimisation of the app, which leverages on Google's Go-Tools library.
